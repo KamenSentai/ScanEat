@@ -1,6 +1,6 @@
 # ScanEat
 
-## Team
+## Team
 
 | Name | Role |
 |-|-|
