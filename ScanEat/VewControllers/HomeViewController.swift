@@ -28,9 +28,6 @@ extension UIColor {
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var conditionButton: UIButton!
-    @IBOutlet weak var titleButton: UILabel!
-    @IBOutlet weak var subtitleButton: UILabel!
     @IBOutlet weak var plusView: UIView!
     @IBOutlet weak var verticalPlusView: UIView!
     @IBOutlet weak var horizontalPlusView: UIView!
@@ -45,14 +42,11 @@ class HomeViewController: UIViewController {
         loginButton.layer.shadowRadius = 10
         loginButton.layer.shadowOpacity = 0.25
         loginButton.backgroundColor = UIColor(rgb: 0xFFFFFF)
-        conditionButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
         plusView.layer.cornerRadius = 35
         plusView.layer.shadowColor = UIColor.black.cgColor
         plusView.layer.shadowOffset = CGSize(width: 0, height: 5)
         plusView.layer.shadowRadius = 10
         plusView.layer.shadowOpacity = 0.25
-        titleButton.font = UIFont.boldSystemFont(ofSize: 26.0)
-        subtitleButton.text = subtitleButton.text!.uppercased()
         verticalPlusView.layer.cornerRadius = 2
         horizontalPlusView.layer.cornerRadius = 2
     }
