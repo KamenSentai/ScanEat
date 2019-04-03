@@ -16,7 +16,6 @@
 		B564E04F22550BDE00F28F0D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B564E04E22550BDD00F28F0D /* GoogleService-Info.plist */; };
 		B564E0512255175100F28F0D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B564E0502255175000F28F0D /* HistoryViewController.swift */; };
 		B5FF5C2922525E5A00939FB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF5C2822525E5A00939FB6 /* AppDelegate.swift */; };
-		B5FF5C2B22525E5A00939FB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF5C2A22525E5A00939FB6 /* ViewController.swift */; };
 		B5FF5C2E22525E5A00939FB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5FF5C2C22525E5A00939FB6 /* Main.storyboard */; };
 		B5FF5C3022525E5E00939FB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5FF5C2F22525E5E00939FB6 /* Assets.xcassets */; };
 		B5FF5C3322525E5E00939FB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5FF5C3122525E5E00939FB6 /* LaunchScreen.storyboard */; };
@@ -24,6 +23,7 @@
 		B5FF5C4922525E5F00939FB6 /* ScanEatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF5C4822525E5F00939FB6 /* ScanEatUITests.swift */; };
 		B5FF5C5A2253A26200939FB6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF5C592253A26200939FB6 /* HomeViewController.swift */; };
 		CF11D70C22552B4E00409072 /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF11D70B22552B4E00409072 /* Scanner.swift */; };
+		CF972DEF225573BF00FB09F8 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF972DEE225573BF00FB09F8 /* ScannerViewController.swift */; };
 		E4D6EF9129DC75B1D01BEB7B /* Pods_ScanEat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A58266B74393EF5D594387F /* Pods_ScanEat.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +57,6 @@
 		B564E0502255175000F28F0D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		B5FF5C2522525E5A00939FB6 /* ScanEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FF5C2822525E5A00939FB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B5FF5C2A22525E5A00939FB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B5FF5C2D22525E5A00939FB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5FF5C2F22525E5E00939FB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5FF5C3222525E5E00939FB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		B5FF5C592253A26200939FB6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C973DD96BEAE36DD01DC1CF7 /* Pods-ScanEatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanEatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScanEatUITests/Pods-ScanEatUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CF11D70B22552B4E00409072 /* Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scanner.swift; sourceTree = "<group>"; };
+		CF972DEE225573BF00FB09F8 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		D5D7686D5D0CB89E1C60557E /* Pods-ScanEatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanEatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScanEatUITests/Pods-ScanEatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAB9074250993163BAB27004 /* Pods_ScanEatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScanEatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD0C5FA54A87FE1A9BD6A27 /* Pods-ScanEat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanEat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScanEat/Pods-ScanEat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,7 +147,6 @@
 				B5FF5C572253A23500939FB6 /* Views */,
 				B5FF5C562253A22E00939FB6 /* Controllers */,
 				B5FF5C2822525E5A00939FB6 /* AppDelegate.swift */,
-				B5FF5C2A22525E5A00939FB6 /* ViewController.swift */,
 				B5FF5C2C22525E5A00939FB6 /* Main.storyboard */,
 				B5FF5C2F22525E5E00939FB6 /* Assets.xcassets */,
 				B5FF5C3122525E5E00939FB6 /* LaunchScreen.storyboard */,
@@ -199,6 +198,7 @@
 				B564E04A225421B000F28F0D /* SelectionViewController.swift */,
 				B564E0502255175000F28F0D /* HistoryViewController.swift */,
 				B51DEB35225551040077DFA0 /* SuggestionViewController.swift */,
+				CF972DEE225573BF00FB09F8 /* ScannerViewController.swift */,
 			);
 			path = VewControllers;
 			sourceTree = "<group>";
@@ -449,8 +449,8 @@
 				B51DEB36225551040077DFA0 /* SuggestionViewController.swift in Sources */,
 				B564E04B225421B000F28F0D /* SelectionViewController.swift in Sources */,
 				CF11D70C22552B4E00409072 /* Scanner.swift in Sources */,
-				B5FF5C2B22525E5A00939FB6 /* ViewController.swift in Sources */,
 				B564E0512255175100F28F0D /* HistoryViewController.swift in Sources */,
+				CF972DEF225573BF00FB09F8 /* ScannerViewController.swift in Sources */,
 				B5FF5C2922525E5A00939FB6 /* AppDelegate.swift in Sources */,
 				B564E04D225438A000F28F0D /* ItemCollectionViewCell.swift in Sources */,
 				B5FF5C5A2253A26200939FB6 /* HomeViewController.swift in Sources */,

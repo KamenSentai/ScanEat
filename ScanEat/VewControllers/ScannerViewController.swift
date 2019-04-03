@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var scanner:Scanner?
     
     override func viewDidLoad() {
