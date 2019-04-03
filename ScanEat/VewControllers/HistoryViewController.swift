@@ -14,11 +14,26 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Auth.auth().signIn(withEmail: "alain@gmail.com", password: "alain123²") { (res, err) in
+            if err != nil {
+                print(err.debugDescription)
+            } else {
+                print("Logged in with alain@gmail.com")
+            }
+        }
+        
 //        if let user = Auth.auth().currentUser {
 //            
 //        } else {
 //            fatalError("Aucun utilisateur connecté")
 //        }
+        
+        // Navigation
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
     }
 
 }

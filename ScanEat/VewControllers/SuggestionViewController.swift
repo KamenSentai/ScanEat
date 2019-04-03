@@ -12,8 +12,13 @@ class SuggestionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        // Navigation
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
     }
 
 }
