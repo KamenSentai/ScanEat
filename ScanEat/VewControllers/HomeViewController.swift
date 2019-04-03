@@ -8,47 +8,30 @@
 
 import UIKit
 
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        assert(red >= 0 && red <= 255, "Invalid red component")
-        assert(green >= 0 && green <= 255, "Invalid green component")
-        assert(blue >= 0 && blue <= 255, "Invalid blue component")
-        
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-    }
-    
-    convenience init(rgb: Int) {
-        self.init(
-            red: (rgb >> 16) & 0xFF,
-            green: (rgb >> 8) & 0xFF,
-            blue: rgb & 0xFF
-        )
-    }
-}
-
 class HomeViewController: UIViewController {
+    
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var plusView: UIView!
     @IBOutlet weak var verticalPlusView: UIView!
     @IBOutlet weak var horizontalPlusView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // UI
-        loginButton.backgroundColor = UIColor(rgb: 0xFFFFFF)
+        loginButton.contentEdgeInsets = UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10)
         loginButton.layer.cornerRadius = 25
         loginButton.layer.shadowColor = UIColor.black.cgColor
         loginButton.layer.shadowOffset = CGSize(width: 0, height: 5)
         loginButton.layer.shadowRadius = 10
         loginButton.layer.shadowOpacity = 0.25
-        loginButton.backgroundColor = UIColor(rgb: 0xFFFFFF)
         plusView.layer.cornerRadius = 35
         plusView.layer.shadowColor = UIColor.black.cgColor
         plusView.layer.shadowOffset = CGSize(width: 0, height: 5)
         plusView.layer.shadowRadius = 10
         plusView.layer.shadowOpacity = 0.25
-        verticalPlusView.layer.cornerRadius = 2
-        horizontalPlusView.layer.cornerRadius = 2
+        verticalPlusView.layer.cornerRadius = 1
+        horizontalPlusView.layer.cornerRadius = 1
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,4 +47,5 @@ class HomeViewController: UIViewController {
         let registerStoryboard = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
         navigationController?.pushViewController(registerStoryboard, animated: true)
     }
+    
 }
