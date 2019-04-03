@@ -13,6 +13,7 @@
 		B564E04B225421B000F28F0D /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B564E04A225421B000F28F0D /* SelectionViewController.swift */; };
 		B564E04D225438A000F28F0D /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B564E04C225438A000F28F0D /* ItemCollectionViewCell.swift */; };
 		B564E04F22550BDE00F28F0D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B564E04E22550BDD00F28F0D /* GoogleService-Info.plist */; };
+		B564E0512255175100F28F0D /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B564E0502255175000F28F0D /* ProductsViewController.swift */; };
 		B5FF5C2922525E5A00939FB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF5C2822525E5A00939FB6 /* AppDelegate.swift */; };
 		B5FF5C2B22525E5A00939FB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF5C2A22525E5A00939FB6 /* ViewController.swift */; };
 		B5FF5C2E22525E5A00939FB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5FF5C2C22525E5A00939FB6 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		B564E04A225421B000F28F0D /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		B564E04C225438A000F28F0D /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		B564E04E22550BDD00F28F0D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B564E0502255175000F28F0D /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		B5FF5C2522525E5A00939FB6 /* ScanEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FF5C2822525E5A00939FB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5FF5C2A22525E5A00939FB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				B5FF5C592253A26200939FB6 /* HomeViewController.swift */,
 				B564E0442253F2D900F28F0D /* RegisterViewController.swift */,
 				B564E04A225421B000F28F0D /* SelectionViewController.swift */,
+				B564E0502255175000F28F0D /* ProductsViewController.swift */,
 			);
 			path = VewControllers;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 			files = (
 				B564E04B225421B000F28F0D /* SelectionViewController.swift in Sources */,
 				B5FF5C2B22525E5A00939FB6 /* ViewController.swift in Sources */,
+				B564E0512255175100F28F0D /* ProductsViewController.swift in Sources */,
 				B5FF5C2922525E5A00939FB6 /* AppDelegate.swift in Sources */,
 				B564E04D225438A000F28F0D /* ItemCollectionViewCell.swift in Sources */,
 				B5FF5C5A2253A26200939FB6 /* HomeViewController.swift in Sources */,

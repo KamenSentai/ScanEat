@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
@@ -37,8 +39,6 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(self.data)
         
         // Navigation
         let backButton = UIBarButtonItem()
@@ -122,6 +122,36 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
            
             itemCollectionViewCell.barVew.backgroundColor = UIColor(rgb: 0x969696)
             itemCollectionViewCell.titleLabel.textColor = UIColor(rgb: 0x7F4830)
+        }
+    }
+    
+    @IBAction func registerAction(_ sender: Any) {
+        
+        Auth.auth().createUser(withEmail: self.data["email"]!, password: self.data["password"]!) { (res, err) in
+            if err != nil {
+                print(err.debugDescription)
+            } else {
+                var activeItems: [String] = []
+                
+                for item in self.items {
+                    if item["selected"] as! Bool == true {
+                        activeItems.append(item["type"] as! String)
+                    }
+                }
+                
+                let ref = Database.database().reference()
+                let user = Auth.auth().currentUser?.uid
+                
+                ref.child("users").child(user!).setValue([
+                    "lastname": self.data["lastname"]!,
+                    "firstname": self.data["firstname"]!,
+                    "items": activeItems
+                ])
+                
+                let myStoryboard = UIStoryboard(name: "Main", bundle : nil)
+                let productsViewController = myStoryboard.instantiateViewController(withIdentifier : "ProductsViewController")
+                self.present(productsViewController, animated: true, completion: nil)
+            }
         }
     }
     

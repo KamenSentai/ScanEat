@@ -36,7 +36,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcP-A1-rGl">
                                 <rect key="frame" x="80" y="285" width="254" height="1"/>
@@ -57,7 +57,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hod-LZ-3FV">
                                 <rect key="frame" x="80" y="354.33333333333331" width="254" height="1"/>
@@ -72,6 +72,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
                                 <state key="normal" title="CONNEXION"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ze-RS-SZM"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="NPY-KO-bTZ">
                                 <rect key="frame" x="60" y="562.33333333333337" width="184" height="87"/>
@@ -171,8 +174,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="37t-2Q-ZMt"/>
                     <connections>
+                        <outlet property="emailTextField" destination="eeS-5R-a1a" id="VPU-sd-HDa"/>
                         <outlet property="horizontalPlusView" destination="uHP-Le-QPz" id="Wem-1f-IDc"/>
                         <outlet property="loginButton" destination="fQg-51-T8j" id="fYw-HB-l1I"/>
+                        <outlet property="passwordTextField" destination="2iH-9o-7OE" id="gIn-1c-O7x"/>
                         <outlet property="plusView" destination="06K-pE-w1i" id="MWE-fH-Vgc"/>
                         <outlet property="verticalPlusView" destination="LTf-If-t29" id="sIg-8P-1ld"/>
                     </connections>
@@ -219,7 +224,6 @@
         <!--Register View Controller-->
         <scene sceneID="65S-n5-1ID">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C8B-OQ-Mfw" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="RegisterViewController" id="zKo-F9-Yp4" customClass="RegisterViewController" customModule="ScanEat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mS8-BU-9zv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -285,7 +289,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="0.49803921569999998" green="0.28235294119999998" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="family-name"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swT-Ia-Gao">
                                 <rect key="frame" x="80" y="198.33333333333334" width="254" height="1"/>
@@ -311,7 +315,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="0.49803921569999998" green="0.28235294119999998" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="given-name"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NqJ-Ry-Vig">
                                 <rect key="frame" x="80" y="268.33333333333331" width="254" height="1"/>
@@ -337,7 +341,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="0.49803921569999998" green="0.28235294119999998" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1OX-Cw-fNo">
                                 <rect key="frame" x="80" y="338.33333333333331" width="254" height="1"/>
@@ -363,7 +367,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="0.49803921569999998" green="0.28235294119999998" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71Q-3d-cjg">
                                 <rect key="frame" x="80" y="408.33333333333331" width="254" height="1"/>
@@ -389,7 +393,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="0.49803921569999998" green="0.28235294119999998" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXJ-8a-Y6Y">
                                 <rect key="frame" x="80" y="478.33333333333331" width="254" height="1"/>
@@ -504,13 +508,13 @@
                         <outlet property="topArrowView" destination="lss-ly-mGW" id="xRx-bj-VRP"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C8B-OQ-Mfw" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="863.768115942029" y="23.64130434782609"/>
         </scene>
         <!--Selection View Controller-->
         <scene sceneID="Ebr-ka-tqY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E3h-GD-qRd" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SelectionViewController" id="dRv-9b-dyu" customClass="SelectionViewController" customModule="ScanEat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="la6-42-EeZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -536,6 +540,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
                                 <state key="normal" title="S'INSCRIRE"/>
+                                <connections>
+                                    <action selector="registerAction:" destination="dRv-9b-dyu" eventType="touchUpInside" id="Dwc-cK-As9"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="M0c-4m-63a">
                                 <rect key="frame" x="20" y="198.66666666666666" width="374" height="326.33333333333337"/>
@@ -627,6 +634,7 @@
                         <outlet property="registerButton" destination="BqQ-Ft-Ky6" id="A5b-19-buw"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E3h-GD-qRd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1679.7101449275362" y="23.64130434782609"/>
         </scene>
@@ -672,10 +680,10 @@
             </objects>
             <point key="canvasLocation" x="48" y="2304"/>
         </scene>
-        <!--View Controller-->
+        <!--Products View Controller-->
         <scene sceneID="yGn-ew-hL7">
             <objects>
-                <viewController id="V4v-nV-1MU" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductsViewController" id="V4v-nV-1MU" customClass="ProductsViewController" customModule="ScanEat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AD5-oL-E2O">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

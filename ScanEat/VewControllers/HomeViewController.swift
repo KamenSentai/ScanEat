@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var plusView: UIView!
     @IBOutlet weak var verticalPlusView: UIView!
@@ -40,6 +43,18 @@ class HomeViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    @IBAction func loginAction(_ sender: Any) {
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (res, err) in
+            if err != nil {
+                print(err.debugDescription)
+            } else {
+                let myStoryboard = UIStoryboard(name: "Main", bundle : nil)
+                let productsViewController = myStoryboard.instantiateViewController(withIdentifier : "ProductsViewController")
+                self.present(productsViewController, animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func registerAction(_ sender: UIButton) {

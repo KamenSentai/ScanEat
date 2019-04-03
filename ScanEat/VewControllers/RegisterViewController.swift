@@ -110,7 +110,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             completed = false
             passwordLabel.text = "Mot de passe manquant"
         } else {
-            let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$²@$#!%*?&])[A-Za-z\\d$²@$#!%*?&]{8,}")
+            let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$§²@$#!%*?&])[A-Za-z\\d$§²@$#!%*?&]{8,}")
             if passwordTest.evaluate(with: passwordTextField.text) == false {
                 completed = false
                 passwordLabel.text = "Mot trop faible"
@@ -126,7 +126,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             confirmationLabel.text = ""
         }
         
-        // completed == true
         if completed == true {
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle : nil)
             let selectionStoryboard = storyboard.instantiateViewController(withIdentifier: "SelectionViewController") as! SelectionViewController
