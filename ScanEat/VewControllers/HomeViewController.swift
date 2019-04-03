@@ -51,8 +51,8 @@ class HomeViewController: UIViewController {
                 print(err.debugDescription)
             } else {
                 let myStoryboard = UIStoryboard(name: "Main", bundle : nil)
-                let productsViewController = myStoryboard.instantiateViewController(withIdentifier : "ProductsViewController")
-                self.present(productsViewController, animated: true, completion: nil)
+                let tabBarController = myStoryboard.instantiateViewController(withIdentifier : "TabBarController")
+                self.present(tabBarController, animated: true, completion: nil)
             }
         }
     }
