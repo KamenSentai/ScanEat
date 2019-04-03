@@ -10,9 +10,9 @@
 		7A0795992F1E76FCFCE10091 /* Pods_ScanEatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F7E9E03FAEC8FAD90222E4 /* Pods_ScanEatTests.framework */; };
 		7B53DC72BC6D00102FDC68F9 /* Pods_ScanEatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB9074250993163BAB27004 /* Pods_ScanEatUITests.framework */; };
 		B51DEB36225551040077DFA0 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51DEB35225551040077DFA0 /* SuggestionViewController.swift */; };
+		B51DEB3A2255725B0077DFA0 /* IngredientCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51DEB392255725B0077DFA0 /* IngredientCollectionViewCell.swift */; };
 		B564E0452253F2D900F28F0D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B564E0442253F2D900F28F0D /* RegisterViewController.swift */; };
 		B564E04B225421B000F28F0D /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B564E04A225421B000F28F0D /* SelectionViewController.swift */; };
-		B564E04D225438A000F28F0D /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B564E04C225438A000F28F0D /* ItemCollectionViewCell.swift */; };
 		B564E04F22550BDE00F28F0D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B564E04E22550BDD00F28F0D /* GoogleService-Info.plist */; };
 		B564E0512255175100F28F0D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B564E0502255175000F28F0D /* HistoryViewController.swift */; };
 		B5FF5C2922525E5A00939FB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF5C2822525E5A00939FB6 /* AppDelegate.swift */; };
@@ -50,9 +50,9 @@
 		89C433E650B63D74B9C5B1E7 /* Pods-ScanEatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanEatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScanEatTests/Pods-ScanEatTests.release.xcconfig"; sourceTree = "<group>"; };
 		913A00D5D9872F90C3060B30 /* Pods-ScanEatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanEatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScanEatTests/Pods-ScanEatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B51DEB35225551040077DFA0 /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
+		B51DEB392255725B0077DFA0 /* IngredientCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCollectionViewCell.swift; sourceTree = "<group>"; };
 		B564E0442253F2D900F28F0D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B564E04A225421B000F28F0D /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
-		B564E04C225438A000F28F0D /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		B564E04E22550BDD00F28F0D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B564E0502255175000F28F0D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		B5FF5C2522525E5A00939FB6 /* ScanEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,7 +185,7 @@
 		B5FF5C572253A23500939FB6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B564E04C225438A000F28F0D /* ItemCollectionViewCell.swift */,
+				B51DEB392255725B0077DFA0 /* IngredientCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,7 +375,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ScanEat/Pods-ScanEat-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-ScanEat/Pods-ScanEat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -392,7 +392,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScanEat/Pods-ScanEat-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScanEat/Pods-ScanEat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D8C93F06D1C5B7675433F75A /* [CP] Check Pods Manifest.lock */ = {
@@ -452,7 +452,7 @@
 				B5FF5C2B22525E5A00939FB6 /* ViewController.swift in Sources */,
 				B564E0512255175100F28F0D /* HistoryViewController.swift in Sources */,
 				B5FF5C2922525E5A00939FB6 /* AppDelegate.swift in Sources */,
-				B564E04D225438A000F28F0D /* ItemCollectionViewCell.swift in Sources */,
+				B51DEB3A2255725B0077DFA0 /* IngredientCollectionViewCell.swift in Sources */,
 				B5FF5C5A2253A26200939FB6 /* HomeViewController.swift in Sources */,
 				B564E0452253F2D900F28F0D /* RegisterViewController.swift in Sources */,
 			);

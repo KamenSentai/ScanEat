@@ -14,14 +14,14 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Auth.auth().signIn(withEmail: "alain@gmail.com", password: "alain123²") { (res, err) in
-            if err != nil {
-                print(err.debugDescription)
-            } else {
-                print("Logged in with alain@gmail.com")
-            }
-        }
-        
+//        Auth.auth().signIn(withEmail: "alain@gmail.com", password: "alain123²") { (res, err) in
+//            if err != nil {
+//                print(err.debugDescription)
+//            } else {
+//                print("Logged in with alain@gmail.com")
+//            }
+//        }
+//        
 //        if let user = Auth.auth().currentUser {
 //            
 //        } else {
