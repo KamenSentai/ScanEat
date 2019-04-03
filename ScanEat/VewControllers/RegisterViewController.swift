@@ -29,13 +29,18 @@ extension UIView {
     }
 }
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var logoView: UIView!
     @IBOutlet weak var arrowView: UIView!
     @IBOutlet weak var middleArrowView: UIView!
     @IBOutlet weak var topArrowView: UIView!
     @IBOutlet weak var bottomArrowView: UIView!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmationTextFiels: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +49,7 @@ class RegisterViewController: UIViewController {
         let backButton = UIBarButtonItem()
         backButton.title = "Retour"
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-
+        
         // UI
         logoView.layer.cornerRadius = 35
         arrowView.layer.cornerRadius = 25
@@ -59,11 +64,66 @@ class RegisterViewController: UIViewController {
         bottomArrowView.layer.cornerRadius = 1
         bottomArrowView.layer.anchorPoint = CGPoint(x: 1, y: 0)
         bottomArrowView.transform = CGAffineTransform(rotationAngle: .pi / 3)
+        
+        // Text fields
+        lastNameTextField.delegate = self
     }
-
+    
     @IBAction func continueAction(_ sender: Any) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle : nil)
-        let selectionStoryboard = storyboard.instantiateViewController(withIdentifier: "SelectionViewController") as! SelectionViewController
-        navigationController?.pushViewController(selectionStoryboard, animated: true)
+        var completed = true
+        
+        if lastNameTextField.text == "" {
+            completed = false
+            print("Last name is empty")
+        }
+        
+        if firstNameTextField.text == "" {
+            completed = false
+            print("First name is empty")
+        }
+        
+        if emailTextField.text == "" {
+            completed = false
+            print("Email is empty")
+        } else {
+            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+            
+            let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+            if emailTest.evaluate(with: emailTextField.text) == false {
+                completed = false
+                print("Email is not valid")
+            }
+        }
+        
+        if passwordTextField.text == "" {
+            completed = false
+            print("Password is empty")
+        } else {
+            let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$²@$#!%*?&])[A-Za-z\\d$²@$#!%*?&]{8,}")
+            if passwordTest.evaluate(with: passwordTextField.text) == false {
+                completed = false
+                print("Password is too weak")
+            }
+        }
+        
+        if passwordTextField.text != confirmationTextFiels.text {
+            completed = false
+            print("Password does not match")
+        }
+        
+        if completed == true {
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle : nil)
+            let selectionStoryboard = storyboard.instantiateViewController(withIdentifier: "SelectionViewController") as! SelectionViewController
+            selectionStoryboard.data = [
+                "lastname": lastNameTextField.text,
+                "firstname": firstNameTextField.text,
+                "email": emailTextField.text,
+                "password": passwordTextField.text
+                ] as! [String : String]
+            navigationController?.pushViewController(selectionStoryboard, animated: true)
+        }
     }
 }
+
+// cvt.alain@gmail.com
+// alain123²

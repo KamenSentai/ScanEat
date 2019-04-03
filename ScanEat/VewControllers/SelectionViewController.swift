@@ -33,9 +33,12 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBOutlet weak var itemsCollectionView: UICollectionView!
     
     var items: [[String: Any]] = [[:]]
+    var data: [String: String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(self.data)
         
         // Navigation
         let backButton = UIBarButtonItem()
