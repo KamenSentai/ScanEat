@@ -62,15 +62,11 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
         // Model
         self.items = [
             ["selected": false, "type": "Porc"],
-            ["selected": false, "type": "Lait"],
-            ["selected": false, "type": "Noix"],
-            ["selected": false, "type": "Sucre"],
+            ["selected": false, "type": "Lactose"],
             ["selected": false, "type": "Caféïne"],
             ["selected": false, "type": "Sésame"],
-            ["selected": false, "type": "Aspartame"],
             ["selected": false, "type": "Soja"],
-            ["selected": false, "type": "Œuf"],
-            ["selected": false, "type": "Lactose"]
+            ["selected": false, "type": "Œuf"]
         ]
     }
     
@@ -81,19 +77,27 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let itemCollectionViewCell = itemsCollectionView.dequeueReusableCell(withReuseIdentifier: "ItemCollectionViewCell", for: indexPath) as! ItemCollectionViewCell
         
-        let cellHeight = 44
+        // UI
+        var cellHeight = 44.0
         
         if let layout = self.itemsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let cellWidth = self.itemsCollectionView.collectionViewLayout.collectionViewContentSize.width
+            let cellWidth = self.itemsCollectionView.collectionViewLayout.collectionViewContentSize.width / 3 - 15
+            cellHeight = Double(cellWidth * 1.25)
             layout.sectionInset = UIEdgeInsets(top: 50, left: 5, bottom: 15, right: 5)
-            layout.itemSize = CGSize(width: cellWidth / 2 - 15, height: CGFloat(cellHeight))
+            layout.itemSize = CGSize(width: cellWidth, height: CGFloat(cellHeight))
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing = 20
         }
         
-        itemCollectionViewCell.layer.borderColor = UIColor(rgb: 0x7F4830).cgColor
-        itemCollectionViewCell.layer.borderWidth = 1
-        itemCollectionViewCell.layer.cornerRadius = CGFloat(cellHeight / 2)
+        itemCollectionViewCell.backgroundColor = UIColor.white
+        itemCollectionViewCell.layer.cornerRadius = CGFloat(15)
+        itemCollectionViewCell.layer.shadowColor = UIColor.black.cgColor
+        itemCollectionViewCell.layer.shadowOffset = CGSize(width: 0, height: 5)
+        itemCollectionViewCell.layer.shadowRadius = 5
+        itemCollectionViewCell.layer.shadowOpacity = 0.125
+        itemCollectionViewCell.layer.masksToBounds = false
+        
+        itemCollectionViewCell.barVew.backgroundColor = UIColor(rgb: 0x969696)
         itemCollectionViewCell.titleLabel.textColor = UIColor(rgb: 0x7F4830)
         
         itemCollectionViewCell.titleLabel.text = self.items[indexPath.row]["type"] as? String
@@ -106,13 +110,17 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
         
         if self.items[indexPath.row]["selected"] as! Bool == false {
             self.items[indexPath.row]["selected"] = true
-            itemCollectionViewCell.layer.borderColor = UIColor(rgb: 0xFB8D5E).cgColor
+            
             itemCollectionViewCell.layer.backgroundColor = UIColor(rgb: 0xFB8D5E).cgColor
+           
+            itemCollectionViewCell.barVew.backgroundColor = UIColor.white
             itemCollectionViewCell.titleLabel.textColor = UIColor.white
         } else {
             self.items[indexPath.row]["selected"] = false
-            itemCollectionViewCell.layer.borderColor = UIColor(rgb: 0x7F4830).cgColor
-            itemCollectionViewCell.layer.backgroundColor = UIColor.clear.cgColor
+            
+            itemCollectionViewCell.layer.backgroundColor = UIColor.white.cgColor
+           
+            itemCollectionViewCell.barVew.backgroundColor = UIColor(rgb: 0x969696)
             itemCollectionViewCell.titleLabel.textColor = UIColor(rgb: 0x7F4830)
         }
     }

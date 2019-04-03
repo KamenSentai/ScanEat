@@ -10,6 +10,8 @@ import UIKit
 
 class ItemCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var barVew: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
 }

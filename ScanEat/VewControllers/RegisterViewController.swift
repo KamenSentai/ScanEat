@@ -41,6 +41,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmationTextFiels: UITextField!
+    @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var confirmationLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,43 +79,54 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
         if lastNameTextField.text == "" {
             completed = false
-            print("Last name is empty")
+            lastNameLabel.text = "Nom manquant"
+        } else {
+            lastNameLabel.text = ""
         }
         
         if firstNameTextField.text == "" {
             completed = false
-            print("First name is empty")
+            firstNameLabel.text = "Prénom manquant"
+        } else {
+            firstNameLabel.text = ""
         }
         
         if emailTextField.text == "" {
             completed = false
-            print("Email is empty")
+            emailLabel.text = "Email manquant"
         } else {
             let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
             
             let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
             if emailTest.evaluate(with: emailTextField.text) == false {
                 completed = false
-                print("Email is not valid")
+                emailLabel.text = "Email invalide"
+            } else {
+                emailLabel.text = ""
             }
         }
         
         if passwordTextField.text == "" {
             completed = false
-            print("Password is empty")
+            passwordLabel.text = "Mot de passe manquant"
         } else {
             let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$²@$#!%*?&])[A-Za-z\\d$²@$#!%*?&]{8,}")
             if passwordTest.evaluate(with: passwordTextField.text) == false {
                 completed = false
-                print("Password is too weak")
+                passwordLabel.text = "Mot trop faible"
+            } else {
+                passwordLabel.text = ""
             }
         }
         
         if passwordTextField.text != confirmationTextFiels.text {
             completed = false
-            print("Password does not match")
+            confirmationLabel.text = "Erreur"
+        } else {
+            confirmationLabel.text = ""
         }
         
+        // completed == true
         if completed == true {
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle : nil)
             let selectionStoryboard = storyboard.instantiateViewController(withIdentifier: "SelectionViewController") as! SelectionViewController
