@@ -557,7 +557,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCollectionViewCell" id="yNL-bk-xNI" customClass="ItemCollectionViewCell" customModule="ScanEat" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IngredientCollectionViewCell" id="yNL-bk-xNI" customClass="IngredientCollectionViewCell" customModule="ScanEat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="91" height="91"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -596,9 +596,9 @@
                                             <constraint firstAttribute="bottom" secondItem="mZr-qf-UOS" secondAttribute="bottom" constant="5" id="wVb-wz-um6"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="barVew" destination="No4-9x-9bY" id="VAf-8a-SvT"/>
-                                            <outlet property="imageView" destination="qsT-vG-Mdk" id="hIe-G0-EJx"/>
-                                            <outlet property="titleLabel" destination="mZr-qf-UOS" id="vcL-q5-XBy"/>
+                                            <outlet property="barVew" destination="No4-9x-9bY" id="ewO-ZR-Kge"/>
+                                            <outlet property="imageView" destination="qsT-vG-Mdk" id="8d1-os-wpE"/>
+                                            <outlet property="titleLabel" destination="mZr-qf-UOS" id="Dmn-Z4-Mp1"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -632,7 +632,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="mge-5w-j9a"/>
                     <connections>
-                        <outlet property="itemsCollectionView" destination="M0c-4m-63a" id="JOY-0l-B7z"/>
+                        <outlet property="ingredientsCollectionView" destination="M0c-4m-63a" id="RBb-k3-EY0"/>
                         <outlet property="logoView" destination="THs-6M-E7z" id="8Ap-en-hlm"/>
                         <outlet property="registerButton" destination="BqQ-Ft-Ky6" id="A5b-19-buw"/>
                     </connections>
