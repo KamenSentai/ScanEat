@@ -32,9 +32,9 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
 
     @IBOutlet weak var logoView: UIView!
     @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var itemsCollectionView: UICollectionView!
+    @IBOutlet weak var ingredientsCollectionView: UICollectionView!
     
-    var items: [[String: Any]] = [[:]]
+    var ingredients: [[String: Any]] = [[:]]
     var data: [String: String] = [:]
     
     override func viewDidLoad() {
@@ -55,12 +55,12 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
         registerButton.layer.shadowOpacity = 0.25
         
         // Collection
-        itemsCollectionView.delegate = self
-        itemsCollectionView.dataSource = self
-        itemsCollectionView.contentInset = UIEdgeInsets(top: -44, left: 0, bottom: 0, right: 0)
+        ingredientsCollectionView.delegate = self
+        ingredientsCollectionView.dataSource = self
+        ingredientsCollectionView.contentInset = UIEdgeInsets(top: -44, left: 0, bottom: 0, right: 0)
         
         // Model
-        self.items = [
+        self.ingredients = [
             ["selected": false, "type": "Porc"],
             ["selected": false, "type": "Lactose"],
             ["selected": false, "type": "Caféïne"],
@@ -71,17 +71,17 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.items.count
+        return self.ingredients.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let itemCollectionViewCell = itemsCollectionView.dequeueReusableCell(withReuseIdentifier: "ItemCollectionViewCell", for: indexPath) as! ItemCollectionViewCell
+        let ingredientCollectionViewCell = ingredientsCollectionView.dequeueReusableCell(withReuseIdentifier: "IngredientCollectionViewCell", for: indexPath) as! IngredientCollectionViewCell
         
         // UI
         var cellHeight = 44.0
         
-        if let layout = self.itemsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let cellWidth = self.itemsCollectionView.collectionViewLayout.collectionViewContentSize.width / 3 - 15
+        if let layout = self.ingredientsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            let cellWidth = self.ingredientsCollectionView.collectionViewLayout.collectionViewContentSize.width / 3 - 15
             cellHeight = Double(cellWidth * 1.25)
             layout.sectionInset = UIEdgeInsets(top: 50, left: 5, bottom: 15, right: 5)
             layout.itemSize = CGSize(width: cellWidth, height: CGFloat(cellHeight))
@@ -89,39 +89,39 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
             layout.minimumLineSpacing = 20
         }
         
-        itemCollectionViewCell.backgroundColor = UIColor.white
-        itemCollectionViewCell.layer.cornerRadius = CGFloat(15)
-        itemCollectionViewCell.layer.shadowColor = UIColor.black.cgColor
-        itemCollectionViewCell.layer.shadowOffset = CGSize(width: 0, height: 5)
-        itemCollectionViewCell.layer.shadowRadius = 5
-        itemCollectionViewCell.layer.shadowOpacity = 0.125
-        itemCollectionViewCell.layer.masksToBounds = false
+        ingredientCollectionViewCell.backgroundColor = UIColor.white
+        ingredientCollectionViewCell.layer.cornerRadius = CGFloat(15)
+        ingredientCollectionViewCell.layer.shadowColor = UIColor.black.cgColor
+        ingredientCollectionViewCell.layer.shadowOffset = CGSize(width: 0, height: 5)
+        ingredientCollectionViewCell.layer.shadowRadius = 5
+        ingredientCollectionViewCell.layer.shadowOpacity = 0.125
+        ingredientCollectionViewCell.layer.masksToBounds = false
         
-        itemCollectionViewCell.barVew.backgroundColor = UIColor(rgb: 0x969696)
-        itemCollectionViewCell.titleLabel.textColor = UIColor(rgb: 0x7F4830)
+        ingredientCollectionViewCell.barVew.backgroundColor = UIColor(rgb: 0x969696)
+        ingredientCollectionViewCell.titleLabel.textColor = UIColor(rgb: 0x7F4830)
         
-        itemCollectionViewCell.titleLabel.text = self.items[indexPath.row]["type"] as? String
+        ingredientCollectionViewCell.titleLabel.text = self.ingredients[indexPath.row]["type"] as? String
         
-        return itemCollectionViewCell
+        return ingredientCollectionViewCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let itemCollectionViewCell = itemsCollectionView.cellForItem(at: indexPath)! as! ItemCollectionViewCell
+        let ingredientCollectionViewCell = ingredientsCollectionView.cellForItem(at: indexPath)! as! IngredientCollectionViewCell
         
-        if self.items[indexPath.row]["selected"] as! Bool == false {
-            self.items[indexPath.row]["selected"] = true
+        if self.ingredients[indexPath.row]["selected"] as! Bool == false {
+            self.ingredients[indexPath.row]["selected"] = true
             
-            itemCollectionViewCell.layer.backgroundColor = UIColor(rgb: 0xFB8D5E).cgColor
+            ingredientCollectionViewCell.layer.backgroundColor = UIColor(rgb: 0xFB8D5E).cgColor
            
-            itemCollectionViewCell.barVew.backgroundColor = UIColor.white
-            itemCollectionViewCell.titleLabel.textColor = UIColor.white
+            ingredientCollectionViewCell.barVew.backgroundColor = UIColor.white
+            ingredientCollectionViewCell.titleLabel.textColor = UIColor.white
         } else {
-            self.items[indexPath.row]["selected"] = false
+            self.ingredients[indexPath.row]["selected"] = false
             
-            itemCollectionViewCell.layer.backgroundColor = UIColor.white.cgColor
+            ingredientCollectionViewCell.layer.backgroundColor = UIColor.white.cgColor
            
-            itemCollectionViewCell.barVew.backgroundColor = UIColor(rgb: 0x969696)
-            itemCollectionViewCell.titleLabel.textColor = UIColor(rgb: 0x7F4830)
+            ingredientCollectionViewCell.barVew.backgroundColor = UIColor(rgb: 0x969696)
+            ingredientCollectionViewCell.titleLabel.textColor = UIColor(rgb: 0x7F4830)
         }
     }
     
@@ -131,11 +131,11 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
             if err != nil {
                 print(err.debugDescription)
             } else {
-                var activeItems: [String] = []
+                var activeIngredients: [String] = []
                 
-                for item in self.items {
-                    if item["selected"] as! Bool == true {
-                        activeItems.append(item["type"] as! String)
+                for ingredient in self.ingredients {
+                    if ingredient["selected"] as! Bool == true {
+                        activeIngredients.append(ingredient["type"] as! String)
                     }
                 }
                 
@@ -145,7 +145,7 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
                 ref.child("users").child(user!).setValue([
                     "lastname": self.data["lastname"]!,
                     "firstname": self.data["firstname"]!,
-                    "items": activeItems
+                    "ingredients": activeIngredients
                 ])
                 
                 let myStoryboard = UIStoryboard(name: "Main", bundle : nil)
