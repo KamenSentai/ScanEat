@@ -11,12 +11,12 @@
 		7B53DC72BC6D00102FDC68F9 /* Pods_ScanEatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB9074250993163BAB27004 /* Pods_ScanEatUITests.framework */; };
 		B51DEB36225551040077DFA0 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51DEB35225551040077DFA0 /* SuggestionViewController.swift */; };
 		B51DEB3A2255725B0077DFA0 /* IngredientCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51DEB392255725B0077DFA0 /* IngredientCollectionViewCell.swift */; };
+		B51DEB412255A0A70077DFA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B51DEB3F2255A0A70077DFA0 /* Main.storyboard */; };
 		B564E0452253F2D900F28F0D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B564E0442253F2D900F28F0D /* RegisterViewController.swift */; };
 		B564E04B225421B000F28F0D /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B564E04A225421B000F28F0D /* SelectionViewController.swift */; };
 		B564E04F22550BDE00F28F0D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B564E04E22550BDD00F28F0D /* GoogleService-Info.plist */; };
 		B564E0512255175100F28F0D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B564E0502255175000F28F0D /* HistoryViewController.swift */; };
 		B5FF5C2922525E5A00939FB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF5C2822525E5A00939FB6 /* AppDelegate.swift */; };
-		B5FF5C2E22525E5A00939FB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5FF5C2C22525E5A00939FB6 /* Main.storyboard */; };
 		B5FF5C3022525E5E00939FB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5FF5C2F22525E5E00939FB6 /* Assets.xcassets */; };
 		B5FF5C3322525E5E00939FB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5FF5C3122525E5E00939FB6 /* LaunchScreen.storyboard */; };
 		B5FF5C3E22525E5F00939FB6 /* ScanEatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF5C3D22525E5F00939FB6 /* ScanEatTests.swift */; };
@@ -51,13 +51,13 @@
 		913A00D5D9872F90C3060B30 /* Pods-ScanEatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanEatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScanEatTests/Pods-ScanEatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B51DEB35225551040077DFA0 /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		B51DEB392255725B0077DFA0 /* IngredientCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCollectionViewCell.swift; sourceTree = "<group>"; };
+		B51DEB402255A0A70077DFA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B564E0442253F2D900F28F0D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B564E04A225421B000F28F0D /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		B564E04E22550BDD00F28F0D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B564E0502255175000F28F0D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		B5FF5C2522525E5A00939FB6 /* ScanEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FF5C2822525E5A00939FB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B5FF5C2D22525E5A00939FB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5FF5C2F22525E5E00939FB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5FF5C3222525E5E00939FB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5FF5C3422525E5E00939FB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -147,8 +147,8 @@
 				B5FF5C572253A23500939FB6 /* Views */,
 				B5FF5C562253A22E00939FB6 /* Controllers */,
 				B5FF5C2822525E5A00939FB6 /* AppDelegate.swift */,
-				B5FF5C2C22525E5A00939FB6 /* Main.storyboard */,
 				B5FF5C2F22525E5E00939FB6 /* Assets.xcassets */,
+				B51DEB3F2255A0A70077DFA0 /* Main.storyboard */,
 				B5FF5C3122525E5E00939FB6 /* LaunchScreen.storyboard */,
 				B5FF5C3422525E5E00939FB6 /* Info.plist */,
 				B564E04E22550BDD00F28F0D /* GoogleService-Info.plist */,
@@ -324,7 +324,7 @@
 				B5FF5C3322525E5E00939FB6 /* LaunchScreen.storyboard in Resources */,
 				B564E04F22550BDE00F28F0D /* GoogleService-Info.plist in Resources */,
 				B5FF5C3022525E5E00939FB6 /* Assets.xcassets in Resources */,
-				B5FF5C2E22525E5A00939FB6 /* Main.storyboard in Resources */,
+				B51DEB412255A0A70077DFA0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,10 +496,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B5FF5C2C22525E5A00939FB6 /* Main.storyboard */ = {
+		B51DEB3F2255A0A70077DFA0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B5FF5C2D22525E5A00939FB6 /* Base */,
+				B51DEB402255A0A70077DFA0 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
