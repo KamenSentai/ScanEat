@@ -60,14 +60,21 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
         ingredientsCollectionView.contentInset = UIEdgeInsets(top: -44, left: 0, bottom: 0, right: 0)
         
         // Model
-        self.ingredients = [
-            ["selected": false, "type": "Porc"],
-            ["selected": false, "type": "Lactose"],
-            ["selected": false, "type": "Caféïne"],
-            ["selected": false, "type": "Sésame"],
-            ["selected": false, "type": "Soja"],
-            ["selected": false, "type": "Œuf"]
-        ]
+        self.ingredients.removeAll()
+        let ref = Database.database().reference()
+        ref.child("ingredients").queryOrderedByKey().observe(.childAdded) { (snapshot) in
+            let snapshotValue = snapshot.value as? NSDictionary
+            let name = snapshotValue?["name"] as? String
+            let slug = snapshotValue?["url"] as? String
+            
+            self.ingredients.append([
+                "selected": false,
+                "name": name as Any,
+                "url": slug as Any
+            ])
+            
+            self.ingredientsCollectionView.reloadData()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -100,7 +107,7 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
         ingredientCollectionViewCell.barVew.backgroundColor = UIColor(rgb: 0x969696)
         ingredientCollectionViewCell.titleLabel.textColor = UIColor(rgb: 0x7F4830)
         
-        ingredientCollectionViewCell.titleLabel.text = self.ingredients[indexPath.row]["type"] as? String
+        ingredientCollectionViewCell.titleLabel.text = self.ingredients[indexPath.row]["name"] as? String
         
         return ingredientCollectionViewCell
     }
@@ -135,7 +142,7 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
                 
                 for ingredient in self.ingredients {
                     if ingredient["selected"] as! Bool == true {
-                        activeIngredients.append(ingredient["type"] as! String)
+                        activeIngredients.append(ingredient["name"] as! String)
                     }
                 }
                 
