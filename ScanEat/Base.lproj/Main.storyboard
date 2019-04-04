@@ -593,34 +593,34 @@
                                 <rect key="frame" x="20" y="198.66666666666666" width="374" height="326.33333333333337"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ceX-7h-KZO">
-                                    <size key="itemSize" width="91" height="91"/>
+                                    <size key="itemSize" width="91" height="116"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IngredientCollectionViewCell" id="yNL-bk-xNI" customClass="IngredientCollectionViewCell" customModule="ScanEat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="91" height="91"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="91" height="116"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="91" height="91"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="91" height="116"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="No4-9x-9bY">
-                                                    <rect key="frame" x="0.0" y="64" width="91" height="1"/>
+                                                    <rect key="frame" x="0.0" y="93.666666666666671" width="91" height="1"/>
                                                     <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="Qd2-zv-0d3"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZr-qf-UOS">
-                                                    <rect key="frame" x="28.000000000000004" y="69" width="35.333333333333343" height="17"/>
+                                                    <rect key="frame" x="28.000000000000004" y="98.666666666666671" width="35.333333333333343" height="12.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qsT-vG-Mdk">
-                                                    <rect key="frame" x="23" y="10" width="45" height="45"/>
+                                                    <rect key="frame" x="28" y="29.999999999999996" width="35" height="34.666666666666657"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="qsT-vG-Mdk" secondAttribute="height" multiplier="1:1" id="5Ec-Ab-DUL"/>
                                                     </constraints>
@@ -628,14 +628,15 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="qsT-vG-Mdk" firstAttribute="bottom" secondItem="No4-9x-9bY" secondAttribute="bottom" constant="-10" id="2eY-YE-rA7"/>
+                                            <constraint firstItem="qsT-vG-Mdk" firstAttribute="bottom" secondItem="No4-9x-9bY" secondAttribute="bottom" constant="-30" id="2eY-YE-rA7"/>
                                             <constraint firstItem="No4-9x-9bY" firstAttribute="top" secondItem="mZr-qf-UOS" secondAttribute="top" constant="-5" id="6SY-fq-5f2"/>
                                             <constraint firstItem="mZr-qf-UOS" firstAttribute="centerX" secondItem="yNL-bk-xNI" secondAttribute="centerX" id="8jy-bb-7Or"/>
                                             <constraint firstItem="qsT-vG-Mdk" firstAttribute="centerX" secondItem="yNL-bk-xNI" secondAttribute="centerX" id="DqB-UB-KEb"/>
                                             <constraint firstItem="No4-9x-9bY" firstAttribute="width" secondItem="yNL-bk-xNI" secondAttribute="width" id="EVI-eO-drh"/>
-                                            <constraint firstItem="qsT-vG-Mdk" firstAttribute="top" secondItem="yNL-bk-xNI" secondAttribute="top" constant="10" id="GVo-oI-pV8"/>
+                                            <constraint firstItem="qsT-vG-Mdk" firstAttribute="top" secondItem="yNL-bk-xNI" secondAttribute="top" constant="30" id="GVo-oI-pV8"/>
                                             <constraint firstItem="No4-9x-9bY" firstAttribute="centerX" secondItem="yNL-bk-xNI" secondAttribute="centerX" id="H8C-Oe-quL"/>
                                             <constraint firstAttribute="bottom" secondItem="mZr-qf-UOS" secondAttribute="bottom" constant="5" id="wVb-wz-um6"/>
+                                            <constraint firstItem="qsT-vG-Mdk" firstAttribute="height" secondItem="yNL-bk-xNI" secondAttribute="height" multiplier="0.3" id="xdW-bE-LYn"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="barVew" destination="No4-9x-9bY" id="ewO-ZR-Kge"/>
