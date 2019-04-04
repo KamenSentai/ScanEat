@@ -12,14 +12,27 @@ import AVFoundation
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var scanner:Scanner?
-    let gradientLayer: CAGradientLayer = {
-        let layer = CAGradientLayer()
-        layer.colors = [
-            UIColor.red.cgColor,
-            UIColor.green.cgColor
-        ]
-        return layer
+    
+    // Text on camera
+    let text: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "Scannez votre produit"
+        lbl.frame = CGRect(x: 105, y: 400, width: 200, height: 44)
+        lbl.textColor = .white
+        return lbl
     }()
+    
+    let viewR: UIView = {
+        let vR = UIView()
+        let rect = CGRect(x: 40, y: 200, width: 300, height: 200)
+        vR.frame = rect
+        vR.layer.borderWidth = 1.0
+        vR.layer.borderColor = UIColor.white.cgColor
+        vR.layer.cornerRadius = 10
+        return vR
+    }()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +44,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             codeScanner.requestCaptureSessionStartRunning()
         }
         
-        view.layer.addSublayer(gradientLayer)
-        gradientLayer.frame = view.bounds
-        
+        view.addSubview(text)
+        view.addSubview(viewR)
     }
     
     override func viewDidLayoutSubviews() {
+        
         super.viewDidLayoutSubviews()
-        gradientLayer.frame = view.bounds
+        
     }
     
     func handleCode(code:String) {
