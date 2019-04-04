@@ -847,6 +847,20 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="RRb-oP-RbO">
                                 <rect key="frame" x="0.0" y="64" width="414" height="331.33333333333331"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pour vous" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vz-ac-0O0">
+                                <rect key="frame" x="30" y="94" width="143.66666666666666" height="40.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="silouhette" translatesAutoresizingMaskIntoConstraints="NO" id="yNC-ck-dNf">
+                                <rect key="frame" x="340" y="92.333333333333329" width="44" height="43.999999999999986"/>
+                                <color key="backgroundColor" red="0.49803921569999998" green="0.28235294119999998" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="Ltm-FA-sGP"/>
+                                    <constraint firstAttribute="height" constant="44" id="nit-Cr-HS6"/>
+                                </constraints>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shape-home" translatesAutoresizingMaskIntoConstraints="NO" id="p33-wc-3Q7">
                                 <rect key="frame" x="0.0" y="395.33333333333331" width="414" height="146.99999999999994"/>
                             </imageView>
@@ -855,16 +869,24 @@
                         <constraints>
                             <constraint firstItem="RRb-oP-RbO" firstAttribute="height" secondItem="BkB-hE-QJi" secondAttribute="height" multiplier="0.45" id="2mB-zR-Hgo"/>
                             <constraint firstItem="RRb-oP-RbO" firstAttribute="leading" secondItem="J8e-4Z-UNM" secondAttribute="leading" id="DQX-fj-t1H"/>
+                            <constraint firstItem="yNC-ck-dNf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5Vz-ac-0O0" secondAttribute="trailing" constant="30" id="Dhl-Vm-HKD"/>
                             <constraint firstItem="J8e-4Z-UNM" firstAttribute="trailing" secondItem="p33-wc-3Q7" secondAttribute="trailing" id="JO5-87-3QS"/>
+                            <constraint firstItem="J8e-4Z-UNM" firstAttribute="trailing" secondItem="yNC-ck-dNf" secondAttribute="trailing" constant="30" id="Rpo-6D-BDZ"/>
+                            <constraint firstItem="5Vz-ac-0O0" firstAttribute="top" secondItem="J8e-4Z-UNM" secondAttribute="top" constant="30" id="W3c-Tc-2gf"/>
                             <constraint firstItem="J8e-4Z-UNM" firstAttribute="trailing" secondItem="RRb-oP-RbO" secondAttribute="trailing" id="dqH-gC-BsT"/>
                             <constraint firstItem="p33-wc-3Q7" firstAttribute="leading" secondItem="J8e-4Z-UNM" secondAttribute="leading" id="ea2-Le-MzZ"/>
                             <constraint firstItem="RRb-oP-RbO" firstAttribute="top" secondItem="J8e-4Z-UNM" secondAttribute="top" id="epB-LW-c8h"/>
+                            <constraint firstItem="5Vz-ac-0O0" firstAttribute="leading" secondItem="J8e-4Z-UNM" secondAttribute="leading" constant="30" id="fcH-cR-JOU"/>
                             <constraint firstItem="p33-wc-3Q7" firstAttribute="height" secondItem="BkB-hE-QJi" secondAttribute="height" multiplier="0.2" id="q6m-Pd-aaB"/>
                             <constraint firstItem="p33-wc-3Q7" firstAttribute="top" secondItem="RRb-oP-RbO" secondAttribute="bottom" id="wdF-3c-YOu"/>
+                            <constraint firstItem="yNC-ck-dNf" firstAttribute="centerY" secondItem="5Vz-ac-0O0" secondAttribute="centerY" id="zoY-fO-qD3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J8e-4Z-UNM"/>
                     </view>
                     <navigationItem key="navigationItem" id="bvO-uu-be1"/>
+                    <connections>
+                        <outlet property="photoImageView" destination="yNC-ck-dNf" id="N9B-2s-1jR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MaV-kx-7S6" sceneMemberID="firstResponder"/>
             </objects>
