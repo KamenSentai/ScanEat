@@ -112,13 +112,24 @@ class HistoryViewController: UIViewController, UICollectionViewDelegate, UIColle
         productCollectionViewCell.backgrounView.layer.masksToBounds = true
         productCollectionViewCell.barVew.backgroundColor = UIColor(rgb: 0x969696)
         productCollectionViewCell.titleLabel.textColor = UIColor(rgb: 0x7F4830)
+        productCollectionViewCell.subtitleLabel.textColor = UIColor(rgb: 0x969696)
         productCollectionViewCell.topBarView.backgroundColor = self.products[indexPath.row]["alert"] as! Bool == false ? UIColor(rgb: 0x00DC3E) : UIColor(rgb: 0xF62401)
-//
-//        ingredientCollectionViewCell.titleLabel.text = self.ingredients[indexPath.row]["name"] as? String
-//
-//        if let urlImage = URL(string: self.ingredients[indexPath.row]["url"] as! String) {
-//            ingredientCollectionViewCell.imageView.af_setImage(withURL: urlImage)
-//        }
+        
+        let products = ProductManager(code: self.products[indexPath.row]["code"] as! Int)
+        products.fetchProduct { (productFromJSON) in
+            print("HELLO")
+            print(productFromJSON.name)
+            print(productFromJSON.brand)
+            print(productFromJSON.image)
+            print("BYE")
+            
+            productCollectionViewCell.titleLabel.text = productFromJSON.name
+            productCollectionViewCell.subtitleLabel.text = productFromJSON.brand
+    
+            if let urlImage = URL(string: productFromJSON.image) {
+                productCollectionViewCell.imageView.af_setImage(withURL: urlImage)
+            }
+        }
         
         return productCollectionViewCell
     }
