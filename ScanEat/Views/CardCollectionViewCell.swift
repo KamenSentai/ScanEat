@@ -1,5 +1,5 @@
 //
-//  IngredientCollectionViewCell.swift
+//  CardCollectionViewCell.swift
 //  ScanEat
 //
 //  Created by Alain on 04/04/2019.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-class IngredientCollectionViewCell: UICollectionViewCell {
+class CardCollectionViewCell: UICollectionViewCell {
+    
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var barVew: UIView!

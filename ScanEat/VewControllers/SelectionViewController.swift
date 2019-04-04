@@ -66,12 +66,12 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
         ref.child("ingredients").queryOrderedByKey().observe(.childAdded) { (snapshot) in
             let snapshotValue = snapshot.value as? NSDictionary
             let name = snapshotValue?["name"] as? String
-            let slug = snapshotValue?["url"] as? String
+            let url = snapshotValue?["url"] as? String
             
             self.ingredients.append([
                 "selected": false,
                 "name": name as Any,
-                "url": slug as Any
+                "url": url as Any
             ])
             
             self.ingredientsCollectionView.reloadData()
@@ -83,7 +83,7 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let ingredientCollectionViewCell = ingredientsCollectionView.dequeueReusableCell(withReuseIdentifier: "IngredientCollectionViewCell", for: indexPath) as! IngredientCollectionViewCell
+        let ingredientCollectionViewCell = ingredientsCollectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as! CardCollectionViewCell
         
         // UI
         var cellHeight = 44.0
@@ -118,7 +118,7 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let ingredientCollectionViewCell = ingredientsCollectionView.cellForItem(at: indexPath)! as! IngredientCollectionViewCell
+        let ingredientCollectionViewCell = ingredientsCollectionView.cellForItem(at: indexPath)! as! CardCollectionViewCell
         
         if self.ingredients[indexPath.row]["selected"] as! Bool == false {
             self.ingredients[indexPath.row]["selected"] = true
