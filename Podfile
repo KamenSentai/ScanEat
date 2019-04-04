@@ -9,6 +9,9 @@ target 'ScanEat' do
     pod 'Firebase/Core'
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
+    pod 'SwiftyJSON', '~> 4.0'
+    pod 'Alamofire', '~> 4.7'
+    pod 'AlamofireImage', '~> 3.4'
 
   target 'ScanEatTests' do
     inherit! :search_paths

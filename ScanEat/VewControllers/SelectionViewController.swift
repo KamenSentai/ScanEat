@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import AlamofireImage
 
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
@@ -108,6 +109,10 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
         ingredientCollectionViewCell.titleLabel.textColor = UIColor(rgb: 0x7F4830)
         
         ingredientCollectionViewCell.titleLabel.text = self.ingredients[indexPath.row]["name"] as? String
+        
+        if let urlImage = URL(string: self.ingredients[indexPath.row]["url"] as! String) {
+            ingredientCollectionViewCell.imageView.af_setImage(withURL: urlImage)
+        }
         
         return ingredientCollectionViewCell
     }
