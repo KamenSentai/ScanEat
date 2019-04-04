@@ -874,7 +874,7 @@
         <scene sceneID="dmQ-Mc-3qz">
             <objects>
                 <navigationController id="P9c-QP-Cvl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Historique" image="history" id="iLh-4I-bio"/>
+                    <tabBarItem key="tabBarItem" title="Historique" image="history_grayscale" selectedImage="history" id="iLh-4I-bio"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZnK-X8-dFC">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -891,7 +891,7 @@
         <scene sceneID="e9Y-1B-jLJ">
             <objects>
                 <navigationController id="t8l-KI-4tw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Scanner" image="scanner" id="02c-x9-guz"/>
+                    <tabBarItem key="tabBarItem" title="Scanner" image="scanner_grayscale" selectedImage="scanner" id="02c-x9-guz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pUr-yT-5LO">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -924,7 +924,7 @@
         <scene sceneID="0z4-7D-KH4">
             <objects>
                 <navigationController id="zQw-lp-G9c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pour vous" image="suggestion" id="PYK-fC-0zj"/>
+                    <tabBarItem key="tabBarItem" title="Pour vous" image="suggestion_grayscale" selectedImage="suggestion" id="PYK-fC-0zj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eG0-KC-tr0">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -940,12 +940,15 @@
     </scenes>
     <resources>
         <image name="history" width="25" height="25"/>
+        <image name="history_grayscale" width="25" height="25"/>
         <image name="logo" width="30" height="30"/>
         <image name="rectangle" width="414" height="380"/>
         <image name="scanner" width="34.333332061767578" height="25"/>
+        <image name="scanner_grayscale" width="34.333332061767578" height="25"/>
         <image name="shape-home" width="414" height="143"/>
         <image name="silouhette" width="44" height="44"/>
         <image name="suggestion" width="25" height="25"/>
+        <image name="suggestion_grayscale" width="24.666666030883789" height="25"/>
     </resources>
     <color key="tintColor" red="0.49803921568627452" green="0.28235294117647058" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
 </document>
