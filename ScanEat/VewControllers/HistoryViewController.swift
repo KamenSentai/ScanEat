@@ -21,7 +21,7 @@ class HistoryViewController: UIViewController {
                 print("Logged in with alain@gmail.com")
             }
         }
-//        
+//
 //        if let user = Auth.auth().currentUser {
 //            
 //        } else {
