@@ -139,6 +139,3 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         }
     }
 }
-
-// cvt.alain@gmail.com
-// alain123²
