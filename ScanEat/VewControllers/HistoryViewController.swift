@@ -9,12 +9,14 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import AlamofireImage
 
 class HistoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var products: [[String: Any]] = [[:]]
 
     @IBOutlet weak var productsCollectionView: UICollectionView!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +60,21 @@ class HistoryViewController: UIViewController, UICollectionViewDelegate, UIColle
             
             self.productsCollectionView.reloadData()
         }
+        
+        // UI
+        photoImageView.layer.cornerRadius = 22
+        photoImageView.layer.masksToBounds = true
+        
+        ref.child("users").child(user!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let snapshotValue = snapshot.value as? NSDictionary
+            let image = snapshotValue?["image"] as? String
+            
+            if image != nil && image != "" {
+                if let urlImage = URL(string: image!) {
+                    self.photoImageView.af_setImage(withURL: urlImage)
+                }
+            }
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {

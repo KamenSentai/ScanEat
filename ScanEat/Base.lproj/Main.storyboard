@@ -704,8 +704,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7z3-TS-rzA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="silouhette" translatesAutoresizingMaskIntoConstraints="NO" id="7z3-TS-rzA">
                                 <rect key="frame" x="340" y="92.333333333333329" width="44" height="43.999999999999986"/>
+                                <color key="backgroundColor" red="0.49803921569999998" green="0.28235294119999998" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="9Iw-6F-kGa"/>
                                     <constraint firstAttribute="height" constant="44" id="ydv-t4-WqA"/>
@@ -819,6 +820,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="iyF-so-Vjg"/>
                     <connections>
+                        <outlet property="photoImageView" destination="7z3-TS-rzA" id="Djs-fY-aed"/>
                         <outlet property="productsCollectionView" destination="5kT-f3-6fL" id="ehW-Nl-qtr"/>
                     </connections>
                 </viewController>
@@ -934,6 +936,7 @@
         <image name="rectangle" width="414" height="380"/>
         <image name="scanner" width="34.333332061767578" height="25"/>
         <image name="shape-home" width="414" height="143"/>
+        <image name="silouhette" width="44" height="44"/>
         <image name="suggestion" width="25" height="25"/>
     </resources>
     <color key="tintColor" red="0.49803921568627452" green="0.28235294117647058" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
