@@ -49,11 +49,13 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
             let snapshotValue = snapshot.value as? NSDictionary
             let name = snapshotValue?["name"] as? String
             let url = snapshotValue?["url"] as? String
+            let data = snapshotValue?["data"] as? String
             
             self.ingredients.append([
                 "selected": false,
                 "name": name as Any,
-                "url": url as Any
+                "url": url as Any,
+                "data": data as Any
             ])
             
             self.ingredientsCollectionView.reloadData()
@@ -125,11 +127,15 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
             if err != nil {
                 print(err.debugDescription)
             } else {
-                var activeIngredients: [String] = []
+                var activeIngredients: [[String: String]] = [[:]]
+                activeIngredients.removeAll()
                 
                 for ingredient in self.ingredients {
                     if ingredient["selected"] as! Bool == true {
-                        activeIngredients.append(ingredient["name"] as! String)
+                        activeIngredients.append([
+                            "name": ingredient["name"] as! String,
+                            "data": ingredient["data"] as! String
+                        ])
                     }
                 }
                 
