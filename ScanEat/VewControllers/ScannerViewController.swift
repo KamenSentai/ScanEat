@@ -8,8 +8,16 @@
 
 import UIKit
 import AVFoundation
+import FirebaseAuth
+import FirebaseDatabase
+import Alamofire
+import SwiftyJSON
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    
+    var dataIngredients: [String] = []
+    var dataChecked: [Bool] = []
+    var currentProducts: [Int] = []
     
     var scanner: Scanner?
     
@@ -35,6 +43,30 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // DB
+        let user = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference()
+        
+        ref.child("users").child(user!).child("ingredients").queryOrderedByKey().observe(.childAdded) { (snapshot) in
+            let snapshotValue = snapshot.value as? NSDictionary
+            let data = snapshotValue?["data"] as? String
+            
+            self.dataIngredients.append(data!)
+            
+            self.dataChecked.removeAll()
+            for _ in self.dataIngredients {
+                self.dataChecked.append(false)
+            }
+        }
+        
+        ref.child("users").child(user!).child("products").queryOrderedByKey().observe(.childAdded) { (snapshot) in
+            let snapshotValue = snapshot.value as? NSDictionary
+            let code = snapshotValue?["code"] as? Int
+            
+            self.currentProducts.append(code!)
+        }
+        
+        // Scanner
         scanner = Scanner(withViewController: self, view: self.view, codeOutputHandler: self.handleCode(code:))
         
         if let codeScanner = scanner {
@@ -49,8 +81,31 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         super.viewDidLayoutSubviews()
     }
     
-    func handleCode(code:String) {
+    func handleCode(code: String) {
         print(code)
+        
+        var isAlreadyAdded = false
+        for currentProduct in self.currentProducts {
+            if "\(currentProduct)" == code {
+                isAlreadyAdded = true
+            }
+        }
+        
+        if isAlreadyAdded == false {
+            for url in self.dataIngredients {
+                Alamofire.request(url).responseJSON { (response) in
+                    if let realData = response.data {
+                        let json = JSON(realData)
+                        
+                        for product in json["products"].arrayValue {
+                            if (product["code"].stringValue == code) {
+                                break
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
