@@ -9,12 +9,17 @@
 import UIKit
 
 class CategoryViewController: UIViewController {
+    
+    var titleCatgory: String = ""
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var productsCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // UI
+        titleLabel.text = self.titleCatgory
     }
 
 }

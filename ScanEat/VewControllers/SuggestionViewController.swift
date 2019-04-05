@@ -65,10 +65,6 @@ class SuggestionViewController: UIViewController, UICollectionViewDelegate, UICo
         })
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.categories.count
     }
@@ -105,6 +101,13 @@ class SuggestionViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         
         return categoryCollectionViewCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle : nil)
+        let categoryStoryboard = storyboard.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
+        categoryStoryboard.titleCatgory = self.categories[indexPath.row]["name"]!
+        navigationController?.pushViewController(categoryStoryboard, animated: true)
     }
 
 }
