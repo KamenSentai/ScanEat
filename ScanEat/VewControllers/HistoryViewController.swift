@@ -117,12 +117,6 @@ class HistoryViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         let products = ProductManager(code: self.products[indexPath.row]["code"] as! Int)
         products.fetchProduct { (productFromJSON) in
-            print("HELLO")
-            print(productFromJSON.name)
-            print(productFromJSON.brand)
-            print(productFromJSON.image)
-            print("BYE")
-            
             productCollectionViewCell.titleLabel.text = productFromJSON.name
             productCollectionViewCell.subtitleLabel.text = productFromJSON.brand
     

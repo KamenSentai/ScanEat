@@ -48,14 +48,14 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
         ref.child("ingredients").queryOrderedByKey().observe(.childAdded) { (snapshot) in
             let snapshotValue = snapshot.value as? NSDictionary
             let name = snapshotValue?["name"] as? String
-            let url = snapshotValue?["url"] as? String
             let data = snapshotValue?["data"] as? String
+            let image = snapshotValue?["image"] as? String
             
             self.ingredients.append([
                 "selected": false,
                 "name": name as Any,
-                "url": url as Any,
-                "data": data as Any
+                "data": data as Any,
+                "image": image as Any
             ])
             
             self.ingredientsCollectionView.reloadData()
@@ -94,7 +94,7 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
         
         ingredientCollectionViewCell.titleLabel.text = self.ingredients[indexPath.row]["name"] as? String
         
-        if let urlImage = URL(string: self.ingredients[indexPath.row]["url"] as! String) {
+        if let urlImage = URL(string: self.ingredients[indexPath.row]["image"] as! String) {
             ingredientCollectionViewCell.imageView.af_setImage(withURL: urlImage)
         }
         
@@ -134,7 +134,8 @@ class SelectionViewController: UIViewController, UICollectionViewDelegate, UICol
                     if ingredient["selected"] as! Bool == true {
                         activeIngredients.append([
                             "name": ingredient["name"] as! String,
-                            "data": ingredient["data"] as! String
+                            "data": ingredient["data"] as! String,
+                            "image": ingredient["image"] as! String
                         ])
                     }
                 }
