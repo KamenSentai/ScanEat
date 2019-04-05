@@ -11,7 +11,7 @@ import AVFoundation
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    var scanner:Scanner?
+    var scanner: Scanner?
     
     // Text on camera
     let text: UILabel = {
@@ -32,11 +32,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         return vR
     }()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         scanner = Scanner(withViewController: self, view: self.view, codeOutputHandler: self.handleCode(code:))
         
@@ -49,9 +46,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     override func viewDidLayoutSubviews() {
-        
         super.viewDidLayoutSubviews()
-        
     }
     
     func handleCode(code:String) {
@@ -61,7 +56,5 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         scanner?.scannerDelegate(output, didOutput: metadataObjects, from: connection)
     }
-    
-    
     
 }
