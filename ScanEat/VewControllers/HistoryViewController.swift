@@ -24,8 +24,49 @@ class HistoryViewController: UIViewController, UICollectionViewDelegate, UIColle
         Auth.auth().signIn(withEmail: "alain@gmail.com", password: "Alain123") { (res, err) in
             if err != nil {
                 print(err.debugDescription)
+                print("Not logged")
             } else {
                 print("Logged in with alain@gmail.com")
+                
+                // Navigation
+                self.navigationController?.isNavigationBarHidden = true
+                
+                // Collection
+                self.productsCollectionView.delegate = self
+                self.productsCollectionView.dataSource = self
+                self.productsCollectionView.contentInset = UIEdgeInsets(top: -44, left: 0, bottom: 0, right: 0)
+                
+                // Model
+                self.products.removeAll()
+                let ref = Database.database().reference()
+                let user = Auth.auth().currentUser?.uid
+                ref.child("users").child(user!).child("products").queryOrderedByKey().observe(.childAdded) { (snapshot) in
+                    let snapshotValue = snapshot.value as? NSDictionary
+                    let code = snapshotValue?["code"] as? Int
+                    let alert = snapshotValue?["alert"] as? Bool
+                    
+                    self.products.append([
+                        "code": code as Any,
+                        "alert": alert as Any
+                        ])
+                    
+                    self.productsCollectionView.reloadData()
+                }
+                
+                // UI
+                self.photoImageView.layer.cornerRadius = 22
+                self.photoImageView.layer.masksToBounds = true
+                
+                ref.child("users").child(user!).observeSingleEvent(of: .value, with: { (snapshot) in
+                    let snapshotValue = snapshot.value as? NSDictionary
+                    let image = snapshotValue?["image"] as? String
+                    
+                    if image != nil && image != "" {
+                        if let urlImage = URL(string: image!) {
+                            self.photoImageView.af_setImage(withURL: urlImage)
+                        }
+                    }
+                })
             }
         }
         
@@ -35,46 +76,6 @@ class HistoryViewController: UIViewController, UICollectionViewDelegate, UIColle
 //        } else {
 //            fatalError("Aucun utilisateur connecté")
 //        }
-        
-        // Navigation
-        navigationController?.isNavigationBarHidden = true
-        
-        // Collection
-        productsCollectionView.delegate = self
-        productsCollectionView.dataSource = self
-        productsCollectionView.contentInset = UIEdgeInsets(top: -44, left: 0, bottom: 0, right: 0)
-        
-        // Model
-        self.products.removeAll()
-        let ref = Database.database().reference()
-        let user = Auth.auth().currentUser?.uid
-        ref.child("users").child(user!).child("products").queryOrderedByKey().observe(.childAdded) { (snapshot) in
-            let snapshotValue = snapshot.value as? NSDictionary
-            let code = snapshotValue?["code"] as? Int
-            let alert = snapshotValue?["alert"] as? Bool
-            
-            self.products.append([
-                "code": code as Any,
-                "alert": alert as Any
-            ])
-            
-            self.productsCollectionView.reloadData()
-        }
-        
-        // UI
-        photoImageView.layer.cornerRadius = 22
-        photoImageView.layer.masksToBounds = true
-        
-        ref.child("users").child(user!).observeSingleEvent(of: .value, with: { (snapshot) in
-            let snapshotValue = snapshot.value as? NSDictionary
-            let image = snapshotValue?["image"] as? String
-            
-            if image != nil && image != "" {
-                if let urlImage = URL(string: image!) {
-                    self.photoImageView.af_setImage(withURL: urlImage)
-                }
-            }
-        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -115,8 +116,8 @@ class HistoryViewController: UIViewController, UICollectionViewDelegate, UIColle
         productCollectionViewCell.subtitleLabel.textColor = UIColor(rgb: 0x969696)
         productCollectionViewCell.topBarView.backgroundColor = self.products[indexPath.row]["alert"] as! Bool == false ? UIColor(rgb: 0x00DC3E) : UIColor(rgb: 0xF62401)
         
-        let products = ProductManager(code: self.products[indexPath.row]["code"] as! Int)
-        products.fetchProduct { (productFromJSON) in
+        let productManager = ProductManager(code: self.products[indexPath.row]["code"] as! Int)
+        productManager.fetchProduct { (productFromJSON) in
             productCollectionViewCell.titleLabel.text = productFromJSON.name
             productCollectionViewCell.subtitleLabel.text = productFromJSON.brand
     
